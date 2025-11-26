@@ -1,0 +1,43 @@
+# Skills for GitHub Copilot
+
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/<USERNAME>/<REPO>/node.js.yml?branch=main)](https://github.com/<USERNAME>/<REPO>/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Kumpulan konfigurasi, prompt, dan contoh penggunaan GitHub Copilot untuk memaksimalkan produktivitas saat ngoding.  
+Repo ini dirancang sebagai referensi cepat—mulai dari basic tips sampai trik yang jarang orang tahu.
+
+---
+
+## 🚀 Tujuan
+- Panduan memanfaatkan Copilot secara efektif  
+- Contoh *skills* Copilot yang bisa langsung dipakai  
+- Tempat eksperimen untuk prompt engineering khusus development  
+
+---
+
+## 🧠 Skill Set
+
+### 1. Comment-Driven Prompts
+```ts
+// Generate a TypeScript function that validates an email
+// It should return true if valid, false if invalid
+
+export function isValidEmail(email: string | undefined | null): boolean {
+  if (!email) return false;
+  const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return pattern.test(email);
+}
+// Copilot: Use async/await, avoid side effects, prefer functional patterns.
+
+export async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  return await response.json();
+}
+function calculateTotal(items) {
+  return items.reduce((sum, item) => {
+    const price = item.price ?? 0;
+    const qty = item.quantity ?? 1;
+    return sum + price * qty;
+  }, 0);
+}
